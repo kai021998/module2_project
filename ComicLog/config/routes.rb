@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_issues
   resources :publishers
   resources :issues
   resources :comics

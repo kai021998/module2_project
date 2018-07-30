@@ -1,6 +1,5 @@
 class Comic < ApplicationRecord
-  has_many :user_comics
-  has_many :users, through: :user_comics
   has_many :issues
+  has_many :users, through: :issues
   belongs_to :publisher
 end
