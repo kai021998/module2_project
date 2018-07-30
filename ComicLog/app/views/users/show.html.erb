@@ -1,0 +1,8 @@
+<h1><%= @user.name %></h1>
+
+<% @user.comics_owned.each do |title| %>
+  <h2><%= title %></h2>
+  <% @user.title_issues(title).each do |issue| %>
+    <%= issue.comic.title  %> <%= issue.issue_number %> <br>
+  <% end %>
+<% end %>
