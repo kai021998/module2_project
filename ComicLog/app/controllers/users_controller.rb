@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :get_characters
 
   def index
     @users = User.all
