@@ -5,3 +5,6 @@
     <li><%= link_to user.name, user_path(user) %></li>
   <% end %>
 </ul>
+
+<%= resp = ComicVine::API.get_details_by_url("https://comicvine.gamespot.com/detective-comics-27-the
+-case-of-the-chemical-syndi/4000-105764/") %>
