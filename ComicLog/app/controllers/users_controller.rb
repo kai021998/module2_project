@@ -11,4 +11,14 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def edit
+    @comics = Comic.all
+    @titles = Comic.all_titles
+    @user = User.find(params[:id])
+    render :edit
+  end
+
+  def update
+  end
+
 end
