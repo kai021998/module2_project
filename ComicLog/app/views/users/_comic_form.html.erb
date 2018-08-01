@@ -1,0 +1,13 @@
+<%= form_for @user do |f| %>
+
+    <p> Add These Comics To Your Collection! </p>
+    <% Comic.all.each do |c| %> <br>
+    <%= f.fields_for :issues, c do |c_field| %>
+    <%= c_field.hidden_field :id %>
+<b>    <%= c_field.label c.title %> </b>
+    <%= c_field.collection_check_boxes :issues, c.issues, :issue_number, :issue_number %>
+    <% end %>
+    <% end %>
+    <br>
+    <%= f.submit %>
+<% end %>

@@ -34,6 +34,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
+    current_user.update
   end
 
 private
