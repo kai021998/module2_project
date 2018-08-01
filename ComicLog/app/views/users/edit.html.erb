@@ -2,6 +2,12 @@
 <% @comics.each do |comic| %>
   <h2><%= comic.title %></h2>
     <% comic.issues.each do |issue| %>
-      <%= issue.comic.title  %> <%= issue.issue_number %> <br>
+      <%= issue.comic.title  %> <%= issue.issue_number %> |
+      <% if @user.issues.include?(issue) %>
+        <%= link_to "Add", edit_user_path(@user) %>
+      <% else %>
+        <b>Owned</b>
+      <% end %>
+      <br>
     <% end %>
 <% end %>

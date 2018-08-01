@@ -1,12 +1,21 @@
 class ApplicationController < ActionController::Base
 
-  def get_characters
-  @client = Marvel::Client.new
+    before_action :authorized
+    helper_method :logged_in?, :current_user
 
-  @client.configure do |config|
-    config.api_key = ENV["MY_KEY"]
-    config.private_key = ENV["MY_SECOND_KEY"]
+    def current_user
+      @user = User.find_by(id:
+      session[:logged_in_user_id])
+    end
+
+    def logged_in?
+      !!current_user
+    end
+
+    def authorized
+      unless logged_in?
+        redirect_to new_session_path
+      end
+    end
+
   end
-end
-
-end
