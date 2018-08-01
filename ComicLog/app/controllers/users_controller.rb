@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
+    byebug
     current_user.update
   end
 

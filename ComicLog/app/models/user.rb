@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   validates :name, presence: { case_sensitive: false }
   has_secure_password
+  accepts_nested_attributes_for :issues
 
   #Iterating over all comics a user owns, returning an array displaying unique titles
   def comics_owned
@@ -20,5 +21,21 @@ class User < ApplicationRecord
       issue.comic.title == title
     end
   end
+
+  def unowned_issues(comic)
+    comic.issues.select do |issue|
+      !self.issues.include?(issue)
+    end
+  end
+
+  # <ActionController::Parameters {"0"=>{"id"=>"1", "issues"=>["", "34"]}, "1"=><ActionController::Parameters {"id"=>"2", "issues"=>["", "71"]} permitted: false>, "2"=>{"id"=>"3", "issues"=>[""]}, "3"=>{"id"=>"4", "issues"=>["", "17"]}, "4"=>{"id"=>"5", "issues"=>[""]}, "5"=>{"id"=>"6", "issues"=>["", "71"]}} permitted: false>
+  #
+  # relevant_params = params[:user][:issues_attributes]
+  #
+  # relevant_params.each do |k, v|
+  #   k
+  #
+  # Comic.find(relevant_params["1"][:id]).issues.find_by(issue_number: releveant_params["1"][:issues][1])
+
 
 end
