@@ -1,10 +1,10 @@
 
 #Users
 
-tony = User.create(name: "Tony")
-kai = User.create(name: "Kai")
-luke = User.create(name: "Luke")
-lin = User.create(name: "Lin")
+tony = User.create(name: "Tony", password: "michael")
+kai = User.create(name: "Kai", password: "michael")
+luke = User.create(name: "Luke", password: "michael")
+lin = User.create(name: "Lin", password: "michael")
 
 marvel = Publisher.create(name: "Marvel")
 dc = Publisher.create(name: "DC")

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :issues, through: :user_issues
   has_many :comics, through: :issues
 
-  validates :username, presence: { case_sensitive: false }
+  validates :name, presence: { case_sensitive: false }
   has_secure_password
 
   #Iterating over all comics a user owns, returning an array displaying unique titles
@@ -20,7 +20,5 @@ class User < ApplicationRecord
       issue.comic.title == title
     end
   end
-
-
 
 end
