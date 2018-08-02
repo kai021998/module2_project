@@ -1,7 +1,21 @@
 <h1> <%= @comic.title  %> </h1>
 
-
-<img src="https://static.comicvine.com/uploads/scale_small/0/6060/160636-18058-112068-1-detective-comics.jpg" style="width:300px;height:360px;"><br>
-
-
+<% title = @comic.title %>
+<% case title %>
+<% when "Detective Comics" %>
+<img src="https://www.bleedingcool.com/wp-content/uploads/2010/08/detective.jpg" style="width:300px; height:360px;"><br>
+<% when "Avengers" %>
+<img src="https://d1466nnw0ex81e.cloudfront.net/n_iv/600/668579.jpg" style="width:300px; height:360px;"><br>
+<% when "Action Comics" %>
+<img src ="https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Action_Comics_1.jpg/250px-Action_Comics_1.jpg" style="width:300px; height:360px;">
+<% when "X-Men" %>
+<img src="https://images-na.ssl-images-amazon.com/images/I/A1sDFbEdvpL.jpg" style="width:300px; height:360px;">
+<% when "Walking Dead" %>
+<img src="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/49575/DIG011103_1._SX360_QL80_TTD_.jpg" style="width:300px; height:360px;">
+<% when "Invincible" %>
+<img src ="https://images-na.ssl-images-amazon.com/images/I/61mv4EJj9wL._SX331_BO1,204,203,200_.jpg" style="width:300px; height:360px;">
+<% else %>
+<img src ="https://previews.123rf.com/images/benchart/benchart1609/benchart160900015/64602027-illustration-of-a-cartoon-editable-comic-book-cover-template-with-super-hero-character-flying-titles.jpg" style="width:300px; height:360px;">
+<% end %>
+<br>
 Number of issues: <%= @comic.issues.length %>
