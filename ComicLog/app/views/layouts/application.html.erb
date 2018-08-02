@@ -13,15 +13,25 @@
   <body>
     <% if logged_in? %>
       <h6>Logged in as: <%= current_user.name %></h6>
-      <%= button_to "Logout", logout_path, method: :delete %>
-      <%= button_to "Home", users_path, method: :get %>
     <% else %>
-      <h4>ComicLogger</h4>
-      <img src="http://i.imgur.com/nCbGsyu.jpg">
       <%= button_to "Log In", new_session_path, method: :get %>
       <%= button_to "Sign Up", new_user_path, method: :get %>
-      <%= button_to "Home", users_path, method: :get %>
     <% end %>
+
+    <center><img src="https://i.imgur.com/nCbGsyu.png" style="max-width: 100%; min-height: 50px;"></center>
+    <div id="outer">
+        <% if logged_in? %>
+          <div class="inner"><%= button_to "Profile", user_path(current_user), method: :get %></div>
+        <% end %>
+        <div class="inner"><%= button_to "Users", users_path, method: :get %></div>
+        <div class="inner"><%= button_to "Comics", comics_path, method: :get %></div>
+        <div class="inner"><%= button_to "Publishers", publishers_path, method: :get %></div>
+        <% if logged_in? %>
+          <div class="inner"><%= button_to "Log Out", logout_path, method: :delete %></div>
+        <% else %>
+          <div class="inner"><%= button_to "Log In", publishers_path, method: :get %></div>
+        <% end %>
+    </div>
 <hr>
     <%= yield %>
   </body>

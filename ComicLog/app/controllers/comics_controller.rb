@@ -1,4 +1,5 @@
 class ComicsController < ApplicationController
+  skip_before_action :authorized, only: [:new, :create, :show, :index]
 
   def index
     @comics = Comic.all
@@ -6,6 +7,9 @@ class ComicsController < ApplicationController
     render :index
   end
 
+  def show
+    @comic = Comic.find(params[:id])
+  end
   def new
     @comic = Comic.new
   end

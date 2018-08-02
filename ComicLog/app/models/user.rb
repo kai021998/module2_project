@@ -10,7 +10,7 @@ class User < ApplicationRecord
   #Iterating over all comics a user owns, returning an array displaying unique titles
   def comics_owned
     comics_array = self.comics.map do |comic|
-      comic.title
+      comic
     end
     comics_array.uniq
   end

@@ -6,7 +6,7 @@
 
 <h3> <%= flash[:notice] %> </h3>
   <% @comics.each do |comic| %>
-    <h2><%= comic.title %></h2>
+    <h2><%= link_to comic.title, comic_path(comic) %></h2>
       <% comic.issues.each do |issue| %>
       <%= issue.comic.title  %> <%= issue.issue_number %> <br>
       <% end %>

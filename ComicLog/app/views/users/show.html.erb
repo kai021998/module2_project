@@ -1,8 +1,8 @@
 <h1><%= @user.name %></h1>
 <%= flash[:notice] %>
-<% @user.comics_owned.each do |title| %>
-  <h2><%= title %></h2>
-  <% @user.title_issues(title).each do |issue| %>
+<% @user.comics_owned.each do |comic| %>
+  <h2><%= link_to comic.title, comic_path(comic) %></h2>
+  <% @user.title_issues(comic.title).each do |issue| %>
     <%= issue.comic.title  %> <%= issue.issue_number %> <br>
   <% end %>
 <% end %>
