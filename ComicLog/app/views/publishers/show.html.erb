@@ -1,0 +1,6 @@
+<h1><%= @publisher.name %></h1><br>
+
+<h3>List of Comics:</h3><br>
+<% @publisher.comics.each do |comic| %>
+  <h4><%= link_to comic.title, comic_path(comic) %></h4>
+<% end %>
