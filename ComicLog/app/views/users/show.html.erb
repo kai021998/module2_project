@@ -1,5 +1,10 @@
 <h1><%= @user.name %></h1>
-<%= flash[:notice] %>
+<% if flash[:notice] %>
+  <b><%= flash[:notice] %><br></b>
+<% end %>
+<% if @user == current_user %>
+<%= link_to "Edit Your Catalogue", add_comics_path(current_user) %>
+<% end %>
 <% @user.comics_owned.each do |comic| %>
   <h2><%= link_to comic.title, comic_path(comic) %></h2>
   <% @user.title_issues(comic.title).each do |issue| %>
@@ -8,7 +13,3 @@
 <% end %>
 <br>
 <br>
-<% if @user == current_user %>
-<%= link_to "Edit Your Catalogue", edit_user_path(current_user) %>
-
-<% end %>

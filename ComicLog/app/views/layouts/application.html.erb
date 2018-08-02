@@ -13,9 +13,6 @@
   <body>
     <% if logged_in? %>
       <h6>Logged in as: <%= current_user.name %></h6>
-    <% else %>
-      <%= button_to "Log In", new_session_path, method: :get %>
-      <%= button_to "Sign Up", new_user_path, method: :get %>
     <% end %>
 
     <center><img src="https://i.imgur.com/nCbGsyu.png" style="max-width: 100%; min-height: 50px;"></center>
@@ -29,7 +26,8 @@
         <% if logged_in? %>
           <div class="inner"><%= button_to "Log Out", logout_path, method: :delete %></div>
         <% else %>
-          <div class="inner"><%= button_to "Log In", publishers_path, method: :get %></div>
+          <div class="inner"><%= button_to "Log In", new_session_path, method: :get %></div>
+          <div class="inner"><%= button_to "Sign Up", new_user_path, method: :get %></div>
         <% end %>
     </div>
 <hr>

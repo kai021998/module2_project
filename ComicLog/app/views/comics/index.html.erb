@@ -1,8 +1,11 @@
 <h1> Every Available Comic In The World </h1>
-<% if @user == current_user %> <br>
-<%= link_to "Add Some Comics To Your Collection!", edit_user_path(current_user) %> <br>
-<%= link_to "Create a NEW Comic!", new_comic_path %>
-<% end %><br>
+<br>
+<% if logged_in? %>
+  <% if @user == current_user %> <br>
+    <%= link_to "Add Some Comics To Your Collection!", edit_user_path(current_user) %> <br>
+    <%= link_to "Create a NEW Comic!", new_comic_path %>
+  <% end %><br>
+<% end %>
 
 <h3> <%= flash[:notice] %> </h3>
   <% @comics.each do |comic| %>

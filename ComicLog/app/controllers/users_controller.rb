@@ -26,11 +26,11 @@ class UsersController < ApplicationController
       end
     end
 
-  def edit
+  def add_comics
     @comics = Comic.all
     @titles = Comic.all_titles
-    @user = User.find(params[:id])
-    render :edit
+    @user = current_user
+    render :add_comics
   end
 
   def update

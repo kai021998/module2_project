@@ -1,5 +1,5 @@
 <%= form_for @user do |f| %>
-    <p> Add These Comics To Your Collection! </p>
+    <h2> Add These Comics To Your Collection! </h2>
     <% Comic.all.each do |c| %> <br>
     <%= f.fields_for :issues, c do |c_field| %>
     <b><%= c_field.label c.title %></b>

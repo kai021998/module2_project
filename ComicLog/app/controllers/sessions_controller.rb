@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       session[:logged_in_user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash[:notice] = "You got the username or password wrong you stupid fuck"
+      flash[:notice] = "Incorrect Password or Username"
       redirect_to new_session_path
     end
   end

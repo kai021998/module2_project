@@ -1,6 +1,5 @@
 <h1>Publishers</h1>
 <br>
-
 <% @publishers.each do |publisher| %>
-  <h3><%= link_to publisher.name, publisher_path(publisher) %><br><br>
+  <h2><%= link_to publisher.name, publisher_path(publisher) %></h2>
 <% end %>

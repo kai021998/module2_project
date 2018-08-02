@@ -1,14 +1,12 @@
-<center>
-<h1> LogIn! </h1><br>
+<h1> LogIn! </h1>
 <% if flash[:notice] %>
   <h3><%= flash[:notice] %></h3><br>
 <% end %>
-<center>
 <%= form_tag sessions_path do %>
   <%= label_tag "Name" %>
   <%= text_field_tag :name %>
   <%= label_tag "Password" %>
-  <%= text_field_tag :password %>
+  <%= password_field_tag :password %>
   <%= submit_tag "Sign In" %>
 
 <% end %>

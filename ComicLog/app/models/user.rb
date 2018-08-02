@@ -17,9 +17,10 @@ class User < ApplicationRecord
 
   #Taking an argument of a title string, and selecting all issues a user owns that match the title name
   def title_issues(title)
-    self.issues.select do |issue|
+    issues_array = self.issues.select do |issue|
       issue.comic.title == title
     end
+    issues_array.sort
   end
 
   def unowned_issues(comic)
