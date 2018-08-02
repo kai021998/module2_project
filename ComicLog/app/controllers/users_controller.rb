@@ -35,8 +35,16 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    byebug
-    current_user.update
+    params[:user][:issues_attributes].each do |key, data|
+      if data[:issues].length > 1
+        @comic = Comic.find_by(id: data[:id].to_i)
+        data[:issues].shift #remove empty string from array of issues
+        data[:issues].each do |issue_num|
+          @issue = Issue.find_by(comic_id: @comic.id, issue_number: issue_num)
+          @user.issues << @issue
+        end
+      end
+    end
   end
 
 private

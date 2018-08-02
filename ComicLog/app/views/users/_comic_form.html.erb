@@ -2,8 +2,7 @@
     <p> Add These Comics To Your Collection! </p>
     <% Comic.all.each do |c| %> <br>
     <%= f.fields_for :issues, c do |c_field| %>
-    <%= c_field.hidden_field :id %>
-    <b><%= c_field.label c.title %> </b>
+    <b><%= c_field.label c.title %></b>
     <%= c_field.collection_check_boxes :issues, @user.unowned_issues(c), :issue_number, :issue_number %>
     <% end %>
     <% end %>
