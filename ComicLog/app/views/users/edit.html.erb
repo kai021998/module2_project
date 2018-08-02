@@ -1,12 +1,12 @@
-<h1>Welcome <%= @user.name %>, Edit Your Shit</h1>
+<h1>Welcome <%= @user.name %>, Add To Your Collection! </h1>
 <% @comics.each do |comic| %>
   <h2><%= comic.title %></h2>
     <% comic.issues.each do |issue| %>
       <%= issue.comic.title  %> <%= issue.issue_number %> |
       <% if @user.issues.include?(issue) %>
-        <%= link_to "Add", edit_user_path(@user) %>
+      <b>  Owned </b>
       <% else %>
-        <b>Owned</b>
+        <b>Unowned </b>
       <% end %>
       <br>
     <% end %>

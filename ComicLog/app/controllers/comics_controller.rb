@@ -2,6 +2,7 @@ class ComicsController < ApplicationController
 
   def index
     @comics = Comic.all
+    @user = current_user
     render :index
   end
 

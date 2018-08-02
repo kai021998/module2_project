@@ -3,7 +3,6 @@
 <%= form_for @comic do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-
     <%= f.collection_select :publisher_id, Publisher.all, :id, :name %> <br>
     <%= f.submit %>
 <% end %>

@@ -45,6 +45,8 @@ class UsersController < ApplicationController
         end
       end
     end
+    flash[:notice] = "You have successfully added comic(s) to your collection"
+    redirect_to @user
   end
 
 private
