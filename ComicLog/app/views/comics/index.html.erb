@@ -1,0 +1,9 @@
+<h1> Every Available Comic In The World </h1>
+
+<h3> <%= flash[:notice] %> </h3>
+  <% @comics.each do |comic| %>
+    <h2><%= comic.title %></h2>
+      <% comic.issues.each do |issue| %>
+      <%= issue.comic.title  %> <%= issue.issue_number %> <br>
+      <% end %>
+    <% end %>
