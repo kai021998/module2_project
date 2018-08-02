@@ -4,9 +4,9 @@
     <% comic.issues.each do |issue| %>
       <%= issue.comic.title  %> <%= issue.issue_number %> |
       <% if @user.issues.include?(issue) %>
-      <b>  Owned </b>
+    <font color="green">Owned</font>
       <% else %>
-        <b>Unowned </b>
+        <font color="red">Unowned</font>
       <% end %>
       <br>
     <% end %>
