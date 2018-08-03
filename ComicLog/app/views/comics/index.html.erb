@@ -2,7 +2,7 @@
 <br>
 <% if logged_in? %>
   <% if @user == current_user %> <br>
-    <%= link_to "Add Some Comics To Your Collection!", edit_user_path(current_user) %> <br>
+    <%= link_to "Add Some Comics To Your Collection!", add_comics_path(current_user) %> <br>
     <%= link_to "Create a NEW Comic!", new_comic_path %>
   <% end %><br>
 <% end %>
