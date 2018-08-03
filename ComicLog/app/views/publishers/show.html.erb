@@ -1,4 +1,16 @@
 <h1><%= @publisher.name %></h1><br>
+<% title = @publisher.name %>
+<% case title %>
+  <% when "Marvel" %>
+   <img src="http://thetechnews.com/wp-content/uploads/2018/03/x2_The-latest-Marvel-logo.jpg.pagespeed.ic.ON2Jn-tGto.webp">
+   <% when "DC" %>
+   <img src="https://seeklogo.com/images/D/dc-comics-logo-A99E23954E-seeklogo.com.png">
+   <% when "Image" %>
+   <img src="https://i2.wp.com/comic-watch.com/wp-content/uploads/2018/05/Image-Comics-Logo.png?ssl=1">
+   <% else %>
+    "IDK!"
+    <% end %>
+
 
 <h3>List of Comics:</h3><br>
 <% @publisher.comics.each do |comic| %>
